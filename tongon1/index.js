@@ -1,9 +1,12 @@
 let songs = JSON.parse(localStorage.getItem("songs")) || [];
-let currentIndex = 1;
 renderSong(songs);
 function addSong() {
     let title = document.getElementById("title").value.trim();
     let artist = document.getElementById("artist").value.trim();
+    if (title === "" || artist === "") {
+        alert("Khong duoc de trong!");
+        return;
+    }
 
     let newSong ={
         id: songs.length+1,
